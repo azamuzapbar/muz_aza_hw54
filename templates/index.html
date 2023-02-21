@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} My Market {%endblock%}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<style>
+.container {
+  padding: 0;
+  margin: 30px;
+}
+
+.card {
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<div class="row">
+  {% for article in articles %}
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ category.title }}</p>
+          <p class="card-text">Price: {{ article.cost }}</p>
+          <a href="{% url 'detailed_view' article.pk %}" class="btn btn-primary">See more</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

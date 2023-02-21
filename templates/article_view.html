@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}My Market{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<style>
+.container {
+  padding: 0;
+  margin: 30px;
+}
+
+.card {
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<div class="container">
+  <h2>{{ article.title }}</h2>
+  <p>{{ article.category.title }}</p>
+  <p>Price: {{ article.cost }}</p>
+  {% if article.image %}
+    <img src="{{ article.image.url }}" alt="{{ article.title }}" class="product-img">
+  {% endif %}
+  <p>{{ article.text }}</p>
+  <p>{{ article.created_at }}</p>
+</div>
+{% endblock %}
